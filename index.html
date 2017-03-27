@@ -41,55 +41,38 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>ES6 & ES2017</h1>
+					<h1>ES6 & ES7</h1>
 					<h3>Overview and features</h3>
 					<p>
 						<small>Created by <a href="#">Elizabeth Dolgaya</a> <!-- <a href="http://twitter.com/hakimel">@hakimel</a> --></small>
 					</p>
 				</section>
-
 				<section>
-					<h2>ES6</h2>
+					<h2>JavaScript vs. ECMAScript</h2>
 					<ul>
-						<li class="fragment">It became a standard on 17 June 2015.</li>
-						<li class="fragment">Most of its features are already widely available (as documented in kangax’ ES6 compatibility table).</li>
-						<li class="fragment">Transpilers (such as Babel) let you compile ES6 to ES5.</li>
+							<li>JavaScript: the language</li>
+							<li>ECMAScript: the standard for the language ECMAScript 6 etc.: language versions</li>
+						<li>Transpilers (such as Babel) let you compile ES6 to ES5.</li>
 					</ul>
 				</section>
-
-				<!-- Example of nested vertical slides -->
 				<section>
-					<section>
-						<h2>Goals for ES6:</h2>
-						
-					</section>
-					<section>
-						<h3>Be a better language </h3>
-						<h4 >for writing:</h4>
-						<ul class="fragment">
+					<h2>ECMAScript Timeline</h2>
+					<img src="./timeline.png">
+				</section>
+				<section>
+					<img src="./evolution.fw.png">
+				</section>
+
+				<section>
+						<h4 >A better language for writing:</h4>
+						<ul>
 							<li >complex applications;</li>
 							<li >libraries (possibly including the DOM) shared by those applications;</li>
 							<li >code generators targeting the new edition.</li>
 
 						</ul>					
 					</section>
-					<section>
-						<h3>Improve interoperation</h3>
-						<h4 >adopting de facto standards where possible:</h4>
-						<ul class="fragment">
-							<li >Classes</li>
-							<li >Modules</li>
-							<li >Arrow functions</li>
-							<li >Named function parameters</li>
-
-						</ul>					
-					</section>
-					<section>
-						<h3>Versioning</h3>
-						<h4 class="fragment" >as simple and linear as possible.</h4>
-										
-					</section>
-				</section>
+				
 			<section>
 				<section>
 					<h2>ES6 features</h2>
@@ -165,6 +148,12 @@ func(false); // 3
 						<li>
 							Avoid <a href="#">var</a>.
 						</li>
+						<li>Block scope</li>
+						<li>Fresh bindings for a loops</li>
+						<li>Clean <a href="">global</a> object</li>
+						<li>Redeclaration causes <code>Syntax Error</code></li>
+						<li>Invocation before declaration causes <code>Error</code></li>
+						<li>TDZ</li>
 					</ul>
 					
 					</section>
@@ -273,7 +262,27 @@ function foo(x=0, y=0) {
 }
 					</code></pre>
 					</section>
+
+
+
+					
 					<section>
+						<h4>Exponentiation operator</h4>
+					<pre><code class="hljs" data-trim contenteditable>
+//In ES5				
+// x ** y is same as Math.pow(x, y) 
+const squared = 3 ** 2; 
+//9
+let num = 3;
+num **= 2; 
+// same: num = num ** 2 
+console.log(num); 
+//9
+					</code></pre>
+					</section>
+					<section>
+					<section>
+					<h3>Spread operator</h3>
 						<h4>From <a href="#">arguments</a> to rest parameters</h4>
 						<br>
 					
@@ -295,7 +304,6 @@ function logAllArguments(...args) {
 }
 					</code></pre>
 					</section>
-					<section>
 					<section>
 						<h4>From <a href="#"> apply()</a> to the spread operator <a href="#"> (...)</a></h4>
 					<p>Math.max()</p>
@@ -331,7 +339,7 @@ arr1.push(...arr2);
     // arr1 is now ['a', 'b', 'c', 'd']
 					</code></pre>
 					</section>
-					</section>
+					
 
 				<section>
 						<h4>From <a href="#"> concat()</a> to the spread operator <a href="#"> (...)</a></h4>
@@ -356,6 +364,7 @@ console.log([...arr1, ...arr2, ...arr3]);
     // [ 'a', 'b', 'c', 'd', 'e' ]
 
 					</code></pre>
+					</section>
 					</section>
 					<section>
 						<h4>From function expressions in object literals to method definitions</h4>
@@ -502,13 +511,13 @@ function countWords(word) {
 					<section>
 					<section>
 					<h4>New <a href="#"> string</a> methods </h4>
-					<p>From indexOf to startsWith:</p>
+					<p>From <a href="#">indexOf</a> to <a href="#">startsWith</a>:</p>
 					<pre><code class="hljs" data-trim contenteditable>
 if (str.indexOf('x') === 0) {} // ES5
 
 if (str.startsWith('x')) {} // ES6
 					</code></pre>
-					<p>From indexOf to endsWith:</p>
+					<p>From <a href="#">indexOf</a> to <a href="#">endsWith</a>:</p>
 					<pre><code class="hljs" data-trim contenteditable>
 function endsWith(str, suffix) { // ES5
   var index = str.indexOf(suffix);
@@ -521,13 +530,13 @@ str.endsWith(suffix); // ES6
 					
 					</section>
 					<section>
-					<p>From indexOf to includes:</p>
+					<p>From <a href="#">indexOf</a> to <a href="#">includes</a>:</p>
 					<pre><code class="hljs" data-trim contenteditable>
 if (str.indexOf('x') >= 0) {} // ES5
 
 if (str.includes('x')) {} // ES6
 					</code></pre>
-<p>From join to repeat:</p>
+<p>From <a href="#">join</a> to <a href="#">repeat</a>:</p>
 					<pre><code class="hljs" data-trim contenteditable>
 new Array(3+1).join('#') // ES5
 
@@ -538,14 +547,16 @@ new Array(3+1).join('#') // ES5
 					<section>
 					<section>
 					<h4>New <a href="#"> Array</a> methods </h4>
-					<p>From Array.prototype.indexOf to Array.prototype.findIndex:</p>
+					<p>From <a href="#">indexOf</a> to <a href="#">findIndex</a>:</p>
 					<pre><code class="hljs" data-trim contenteditable>
+//In ES5					
 const arr = ['a', NaN];
 
 arr.indexOf(NaN); // -1 
 arr.findIndex(x => Number.isNaN(x)); // 1
 </code></pre>
 					<pre><code class="hljs" data-trim contenteditable>
+//In ES6					
 > isNaN('abc')
 true
 > Number.isNaN('abc')
@@ -553,7 +564,7 @@ false
 					</code></pre>
 					</section>
 					<section>
-					<p>From Array.prototype.slice() to Array.from() or the spread operator:</p>
+					<p>From <a href="#">slice</a> to <a href="#">from</a> or the <a href="#">spread</a> operator:</p>
 					<pre><code class="hljs" data-trim contenteditable>
 var arr1 = Array.prototype.slice.call(arguments); // ES5
 const arr2 = Array.from(arguments); // ES6
@@ -567,7 +578,7 @@ const arr2 = [...new Set().add('a').add('b')];
 					
 					</section>
 					<section>
-					<p>From apply() to Array.prototype.fill():</p>
+					<p>From <a href="#">apply</a> to <a href="#">fill</a>:</p>
 					<pre><code class="hljs" data-trim contenteditable>
 // Same as Array(undefined, undefined)
 var arr1 = Array.apply(null, new Array(2));
@@ -588,65 +599,143 @@ const arr4 = new Array(2).fill('x');
     // ['x', 'x']
 					</code></pre>
 					</section>
-					</section>
-					<section>
-					<section>
-					<h4>Multiple exports</h4>
-					<p>Multiple exports in CommonJS</p>
-					<pre><code class="hljs" data-trim contenteditable>
-//------ lib.js ------
-var sqrt = Math.sqrt;
-function square(x) {
-    return x * x;
-}
-
-module.exports = {
-    sqrt: sqrt,
-    square: square,
-};
-
-//------ main1.js ------
-var square = require('lib').square;
-
-console.log(square(11)); // 121
-
-					</code></pre>
-					
-					<pre><code class="hljs" data-trim contenteditable>
-//------ main2.js ------
-var lib = require('lib');
-console.log(lib.square(11)); // 121
-					</code></pre>
 					
 					</section>
 					<section>
-					<p>Multiple exports in ES6</p>
-					<pre><code class="hljs" data-trim contenteditable>
-//------ lib.js ------
-export const sqrt = Math.sqrt;
-export function square(x) {
-    return x * x;
-}
-export function diag(x, y) {
-    return sqrt(square(x) + square(y));
+					<h3>ES2017</h3>
+					<ul>
+						<li>
+							<a href="">Major new features</a>:
+							<ul>
+								<li>Async Functions</li>
+								<li>Shared memory and atomics</li>
+							</ul>
+						</li>
+						<li>
+							<a href="">Minor new features</a>:	
+							<ul>
+								<li>Object.values/Object.entries</li>
+								<li>String padding </li>
+								<li>Object.getOwnPropertyDescriptors()</li>
+								<li>Trailing commas in function parameter lists and calls</li>
+							</ul>
+						</li>
+					</ul>
+					
+					
+					
+
+					</section>
+					<section>
+						<section>
+							<h3>Async Functions</h3>
+						Variants:
+
+						<p>Async function <a href="">declarations</a>: </p>
+						<pre><code class="hljs" data-trim contenteditable> async function foo() {}</code></pre>
+						Async function <a href="">expressions</a>: 
+<pre><code class="hljs" data-trim contenteditable>const foo = async function () {};</code></pre>
+<p>Async  <a href="">method definitions</a>:</p>
+ 
+<pre><code class="hljs" data-trim contenteditable>let obj = { async foo() {} }</code></pre>
+<p>Async <a href="">arrow</a> functions: </p>
+
+<pre><code class="hljs" data-trim contenteditable>const foo = async () => {};</code></pre>
+
+
+						
+						</section>
+						<section>
+							<p><a href="">Async</a> functions always return <a href="">Promises</a> </p>
+
+Fulfilling the <a href="">Promise</a> of an <a href="">async</a> function:
+<pre><code class="hljs" data-trim contenteditable>
+async function asyncFunc() {
+    return 123;
 }
 
-//------ main1.js ------
-import { square, diag } from 'lib';
-console.log(square(11)); // 121
-console.log(diag(4, 3)); // 5
+asyncFunc()
+.then(x => console.log(x));
+    // 123</code></pre>
+Rejecting the <a href="">Promise</a> of an <a href="">async</a> function:
+<pre><code class="hljs" data-trim contenteditable>
+async function asyncFunc() {
+    throw new Error('Problem!');
+}
 
-					</code></pre>
+asyncFunc()
+.catch(err => console.log(err));
+    // Error: Problem!
+</code></pre>
+						</section>
+					</section>
+					<section>
+					<section>
+					<h3>Shared memory and atomics</h3>
 					
-					<pre><code class="hljs" data-trim contenteditable>
-//------ main2.js ------
-import * as lib from 'lib'; // (A)
-console.log(lib.square(11)); // 121
-console.log(lib.diag(4, 3)); // 5
-					</code></pre>
+							<p>Shared Array Buffers</p>
+							<ul>
+							<li>A primitive building block for higher-level concurrency abstractions</li>
+								<li>You can share data between workers more quickly.</li>
+								<li>Coordination between workers becomes simpler and faster (compared to postMessage()).</li>
+								<li>Let’s you compile threaded C++ code to JavaScript</li>
+							</ul>
+					</section>
+					<section>
+						<h3>Problems:</h3>
+						<ul>
+							<li>compilers may rearrange reads</li>
+							<li>writes may be reordered</li>
+						</ul>
+					</section>
+					<section>
+					<h3>Atomics</h3>
+					<p>Atomics ensures:</p>
+					<ul><li>Operations are non-interruptible (atomic) – think transactions in DBs</li>
+<li>Order of writes and reads is fixed</li>
+<li> No reads or writes get eliminated</li>
+<li>Can be used to synchronise non-atomic reads and writes</li></ul>
+					
 					</section>
 					</section>
-					
+					<section>
+					<h3>Object.entries()</h3>
+							<p>Returns an Array of  <code>[key,value]</code> pairs: </p>
+ 
+<pre><code class="hljs" data-trim contenteditable>
+
+> Object.entries({ one: 1, two: 2 })
+[ [ 'one', 1 ], [ 'two', 2 ] ]</code></pre>
+
+Easier to iterate over properties:
+
+<pre><code class="hljs" data-trim contenteditable>
+const obj = { one: 1, two: 2 };
+for (const [k, v] of Object.entries(obj)) {
+    console.log(k, v);
+}
+// Output
+// "one" 1
+// "two" 2
+</code></pre>
+
+						</section>
+						<section>
+					<h3>Object.values()</h3>
+							<p>Complements <a href="">Object.keys()</a> and <a href="">Object.entries()</a>:</p>
+ 
+<pre><code class="hljs" data-trim contenteditable>
+
+> Object.values({ one: 1, two: 2 })
+[ 1, 2 ]</code></pre>
+
+						</section>
+						<section>
+							<h2>Thanks!</h2>
+							<img src="./QUESTIONS.jpg">
+
+						</section>
+
 
 			</div>
 
